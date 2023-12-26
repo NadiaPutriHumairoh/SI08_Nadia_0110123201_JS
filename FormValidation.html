@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myForm {
+            width: 40%;
+            margin: auto;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px;
+            background: #fff;
+            max-width: 500px;
+            width: 100%;
+            border-radius: 7px;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+            min-height: 100vh;
+            background:pink;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <form id="myForm">
+        <h2 style="text-align: center;">Form Validation</h2>
+        <label for="name">Nama:</label>
+        <input type="text" id="name" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <br><br>
+
+        <label for="time">Jam Keberangkatan:</label>
+        <input type="time" id="time" required>
+        <br><br>
+
+        <label for="tujuan">Tujuan Keberangkatan:</label>
+        <input type="text" id="tujuan" required>
+        <br><br>
+
+        <label for="tiket">Jumlah Tiket:</label>
+        <input type="number" id="tiket" required>
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var time = document.getElementById("time").value;
+            var tujuan = document.getElementById("tujuan").value;
+            var tiket = document.getElementById("tiket").value;
+
+            document.getElementById("result").innerHTML = "Nama: " + name + "<br>" + "Email: " + email + "<br>" + "Jam Keberangkatan:" + time + "<br>" + "Tujuan Keberangkatan :" + tujuan + "<br>" + "Jumlah Tiket :" + tiket;
+        });
+    </script>
+
+</body>
+
+</html>

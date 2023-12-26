@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs Rupiah</title>
+    <style>
+        fieldset {
+            width: 500px;
+            height: 100px;
+            background-color: whitesmoke;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: pink;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Kurs Rupiah - Mata Uang Asing</legend>
+        <input type="number" id="Input" placeholder="Masukkan Nilai Uang"/>
+
+        <select id="Select">
+            <option value="us">Dollar US</option>
+            <option value="usd">Dollar Singapore</option>
+            <option value="ring">Ringgit Malaysia</option>
+            <option value="yen">Yen</option>
+            <option value="eur">Eropa</option>
+            <option value="riyal">Riyal Arab Saudi</option>
+        </select>
+
+        <input type="number" id="rupiahInput" placeholder="Nilai Rupiah" readonly />
+    </fieldset>
+
+    <script>
+
+        document.getElementById("Select").addEventListener("change", convertCurrency);
+        document.getElementById("Input").addEventListener("input", convertCurrency);
+
+
+        function convertCurrency() {
+            var selectedCurrency = document.getElementById("Select").value;
+            var foreignCurrency = parseFloat(document.getElementById("Input").value);
+
+
+            var exchangeRate = getExchangeRate(selectedCurrency);
+            var rupiahValue = foreignCurrency * exchangeRate;
+
+
+            document.getElementById("rupiahInput").value = rupiahValue;
+        }
+
+
+        function getExchangeRate(currency) {
+            var exchangeRateData = {
+                us: 9915,
+                usd: 13472,
+                ring: 874,
+                yen: 120,
+                eur: 15888,
+                riyal: 3592
+
+            };
+
+            return exchangeRateData[currency];
+        }
+
+
+    </script>
+</body>
+
+</html>

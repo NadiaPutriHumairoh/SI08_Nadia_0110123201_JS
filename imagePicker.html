@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    var images = {
+      "Apel": "Apel.jpg",
+      "Delima": "Delima.webp",
+      "Kiwi": "Kiwi.jpg",
+      "Mangga": "Mangga.jpeg",
+      "Stroberi": "Stroberi.webp",
+    };
+    
+  
+    function showImage() {
+      var selectedFruit = document.getElementById("fruit").value;
+      var imageContainer = document.getElementById("image-container");
+      
+      if (images.hasOwnProperty(selectedFruit)) {
+        var imageUrl = images[selectedFruit];
+        imageContainer.innerHTML = "<img src='" + imageUrl + "' alt='" + selectedFruit + "'>";
+        alert("Nama file gambar: " + imageUrl);
+      } else {
+        imageContainer.innerHTML = "";
+        alert("Gambar tidak ditemukan");
+      }
+    }
+  </script>
+</head>
+<body style="background-color:pink;">
+  <select id="fruit" onchange="showImage()">
+    <option disabled selected>Pilih buah</option>
+    <option>Apel</option>
+    <option>Delima</option>
+    <option>Kiwi</option>
+    <option>Mangga</option>
+    <option>Stroberi</option>
+  </select>
+  
+  <div id="image-container"></div>
+</body>
+</html>
